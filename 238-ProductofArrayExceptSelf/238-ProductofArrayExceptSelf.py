@@ -18,7 +18,7 @@ class Solution:
 
             pre_num = pre_num * nums[i]
 
-        print(result_list)
+        # print(result_list)
 
         # Second pass - create the suffixes, need to go from left to right
 
@@ -30,6 +30,6 @@ class Solution:
 
             suff_num = suff_num * nums[i - 1]
 
-        print(result_list)
+        # print(result_list)
 
         return result_list
