@@ -1,9 +1,9 @@
 class Solution:
     def isPalindrome(self, s: str) -> bool:
         
-        pointer1 = 0
+        # pointer1 = 0
 
-        pointer2 = len(s) - 1
+        # pointer2 = len(s) - 1
 
         # removing non alphanumeric character
         s = (''.join(ch for ch in s if ch.isalnum()))
