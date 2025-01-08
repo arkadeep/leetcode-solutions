@@ -6,7 +6,7 @@ class Solution:
 
         max_profit = 0
 
-        while p1 < len(prices) and p2 < len(prices):
+        while p2 < len(prices):
             
             # print(f"Current pointers: {p1}, {p2}")
             profit = prices[p2] - prices[p1]
