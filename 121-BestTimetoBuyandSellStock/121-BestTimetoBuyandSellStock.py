@@ -13,7 +13,7 @@ class Solution:
             # print(f"Current profit: {profit}")
 
             if profit < 0:
-                p1 += 1
+                p1 = p2
             else:
                 p2 += 1
                 max_profit = max(profit, max_profit)
