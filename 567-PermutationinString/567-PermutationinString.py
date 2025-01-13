@@ -2,29 +2,34 @@ from collections import Counter
 class Solution:
     def checkInclusion(self, s1: str, s2: str) -> bool:
 
-        # This solution is O(m*n)
-        # More efficient O(n) solution is possible
+        # If s2 is shorter than s1, we wont find a solution
+        if len(s2) < len(s1):
+            return False
 
         left = 0
 
         s1_dict = Counter(s1)
+        window_dict = Counter()
 
         for right in range(len(s2)):
 
+            window_dict[s2[right]] += 1
+
+            # If the len of the pointer string is smaller than s1, we keep adding
             if (right - left + 1) < len(s1):
-                print("The pointers have a string smaller than s1")
-                print("Continuing")
                 continue
+
+            # If wondow is larger than s1, remove the left most character
             elif (right - left + 1) > len(s1):
-                print("This is the case where the pointer string is longer")
-                print("Incrementing the left pointer")
+                window_dict[s2[left]] -= 1
+                # If the count is 0, then we remove the key
+                if window_dict[s2[left]] == 0:
+                    del window_dict[s2[left]]
+                
                 left += 1
-            else:
-                print("this is the case where the pointer string is the same length")
-                pointer_dict = Counter(s2[left: right+1])
-                if pointer_dict == s1_dict:
-                    return True
-                else:
-                    left += 1
-            
+
+            # if the window is the same size, check for permutation
+            if window_dict == s1_dict:
+                return True
+
         return False
