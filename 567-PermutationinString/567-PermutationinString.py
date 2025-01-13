@@ -2,6 +2,9 @@ from collections import Counter
 class Solution:
     def checkInclusion(self, s1: str, s2: str) -> bool:
 
+        # This solution is O(m*n)
+        # More efficient O(n) solution is possible
+
         left = 0
 
         s1_dict = Counter(s1)
